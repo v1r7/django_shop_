@@ -82,3 +82,18 @@ class Comment(models.Model):
 
     def __str__(self):
         return f'{self.text[:100]}...'
+
+class Banner(models.Model):
+    image = models.ImageField(verbose_name="Изображение", upload_to= upload_instance)
+    title = models.CharField(verbose_name='Заголовок', max_length=255)
+    description = models.TextField(verbose_name='Описание')
+    product = models.ForeignKey(to=Product,
+                                on_delete=models.SET_NULL,
+                                null=True,
+                                related_name='banner')
+    class Meta:
+        verbose_name = 'Баннер'
+        verbose_name_plural = 'Баннеры'
+
+    def __str__(self):
+        return self.title
