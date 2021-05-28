@@ -39,7 +39,7 @@
       </svg>&nbsp;
       {{ user.first_name|title }}</a>
     {% else %}
-    <a class="py-2 d-none d-md-inline-block" href="#">Регистрация</a>
+    <a class="py-2 d-none d-md-inline-block" href="{% url 'register' %}">Регистрация</a>
     {% endif %}
 
   </nav>
